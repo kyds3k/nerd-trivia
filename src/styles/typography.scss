@@ -1,0 +1,107 @@
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+  text-shadow: 0px 0px 9px var(--shade-3), 0px 0px 15px var(--shade-3), 0px 0px 5px var(--shade-3);
+  transition: text-shadow 1s ease;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.125em;
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: 1em;
+  line-height: 1em;
+}
+
+p {
+  font-family: "Play", sans-serif;
+  font-size: 1em;
+}
+
+::selection {
+  color: var(--shade-5);
+  background-color: var(--shade-1);
+}
+
+a,
+a:link,
+a:visited {
+  color: var(--shade-1);
+  text-decoration: none;
+  position: relative;
+  animation: fadepulse 3s linear infinite;
+  z-index: 1;
+  cursor: url("/images/cyber-click.gif"), auto;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.125rem;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, var(--shade-3), var(--shade-1));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    transform: scaleX(0);
+    transform-origin: top right;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    &:after {
+      transform-origin: top left;
+      transform: scaleX(1);
+    }
+  }
+}
+
+.ttu {
+  text-transform: uppercase;
+}
+
+.ttl {
+  text-transform: lowercase;
+}
+
+.ttc {
+  text-transform: capitalize;
+}
+
+$emamounts: (
+  25,
+  50,
+  75,
+  100,
+  125,
+  150,
+  175,
+  200,
+  225,
+  250,
+  275,
+  300,
+  325,
+  350,
+  375,
+  400
+); // Adjust this to include the em amounts you need.
+
+@each $em in $emamounts {
+  .fs-#{$em} {
+    font-size: #{$em/100}em;
+  }
+}

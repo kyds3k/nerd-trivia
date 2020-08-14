@@ -1,0 +1,185 @@
+// Colors, colors colors colors
+
+$black: #000000;
+$white: #ffffff;
+
+$base-color: blue;
+
+.blue {
+  --shade-1: #ccfcff;
+  --shade-2: #6f8fa3;
+  --shade-3: #365063;
+  --shade-4: #18293a;
+  --shade-5: #141824;
+}
+.green {
+  --shade-1: #32c932;
+  --shade-2: #114411;
+  --shade-3: #0e350e;
+  --shade-4: #092109;
+  --shade-5: #061606;
+}
+
+$error-red: #f40000;
+
+// =============================================
+// State messages
+// =============================================
+
+.error-msg {
+  color: $error-red;
+}
+
+// =============================================
+// Layout - utility classes - AKD
+// =============================================
+
+.is-hidden[style] {
+  display: none !important;
+}
+
+.center-v {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center-h {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-vh {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3D(-50%, -50%, 0);
+}
+
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.desktop-only {
+  display: none;
+  @media only screen and (min-width: 768px) {
+    display: block;
+  }
+}
+
+.mobile-only {
+  display: none;
+  @media only screen and (max-width: 767px) {
+    display: block;
+  }
+}
+
+//text alignment
+
+.tac {
+  text-align: center;
+}
+
+.tal {
+  text-align: left;
+}
+
+.tar {
+  text-align: right;
+}
+
+//display stuff
+
+.d-block {
+  display: block;
+}
+
+.d-i-block {
+  display: inline-block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.jc-around {
+  justify-content: space-around;
+}
+
+.jc-between {
+  justify-content: space-between;
+}
+
+.jc-even {
+  justify-content: space-evenly;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.m-x-a {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.m-y-a {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+//margin and padding: from https://gist.github.com/jacurtis/30da4bf9a6c9b9b5cc0aebac512ca7c9
+
+$spaceamounts: (
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  75,
+  100,
+  auto
+); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .m-a-#{$space} {
+      margin: #{$space}px !important;
+    }
+
+    .m-x-#{$space} {
+      margin-left: #{$space}px !important;
+      margin-right: #{$space}px !important;
+    }
+
+    .m-y-#{$space} {
+      margin-top: #{$space}px !important;
+      margin-bottom: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+
+    .p-a-#{$space} {
+      margin: #{$space}px !important;
+    }
+  }
+}
